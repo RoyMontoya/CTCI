@@ -8,7 +8,7 @@
     "build": "node ./node_modules/parcel-bundler/bin/cli build ./src/index.html --out-dir ./dist/",
     "lint": "node ./node_modules/eslint/bin/eslint . --ext .js --fix",
     "test": "npx jest --watchAll",
-    "coverage": "npx jest --collect-coverage"
+    "test:ci": "npx jest --collect-coverage"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-es2016": "^7.0.0-beta.53",
+    "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",

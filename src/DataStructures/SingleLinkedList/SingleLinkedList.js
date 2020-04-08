@@ -37,24 +37,10 @@ class SingleLinkList {
     }
     return node.value === value ? node : this.search(value, node.next);
   }
-  //with buffer
-  removeDuplicates() {
-    const prevValues = [this.head.value];
-    return this.removeNextDuplicate(prevValues, this.head);
-  }
 
-  removeNextDuplicate(prevValues, node) {
-    if (prevValues.includes(node.next.value)) {
-      if (node.next.next) {
-        node.next = node.next.next;
-      } else {
-        node.next = null;
-        this.tail = node;
-        return;
-      }
-    }
-    prevValues.push(node.value);
-    return this.removeNextDuplicate(prevValues, node.next);
+  prepend(value) {
+    const node = new Node(value, this.head);
+    this.head = node;
   }
 }
 

@@ -27,27 +27,35 @@ describe("Single Linked List", () => {
   });
 
   it("should return the node value if found", () => {
-    const searchTestLinkedList = new SingleLinkedList([4, 5, 6]);
+    const linkedList = new SingleLinkedList([4, 5, 6]);
 
-    const node = searchTestLinkedList.search(4);
+    const node = linkedList.search(4);
 
     expect(node.value).toEqual(4);
   });
 
   it("should return null if you search for invalid value", () => {
-    const searchTestLinkedList = new SingleLinkedList([4, 5, 6]);
+    const linkedList = new SingleLinkedList([4, 5, 6]);
 
-    const node = searchTestLinkedList.search(1);
+    const node = linkedList.search(1);
 
     expect(node).toEqual(null);
   });
 
-  it("should delete the duplicate nodes in a sigle linked list using buffer", () => {
-    const singleLinkedList = new SingleLinkedList([1, 2, 1, 3, 5, 2]);
-    const expectedList = new SingleLinkedList([1, 2, 3, 5]);
+  it("should insert new node on tail making it the new tail", () => {
+    const linkedList = new SingleLinkedList([1, 2, 3]);
 
-    singleLinkedList.removeDuplicates();
+    linkedList.insert(4);
 
-    expect(singleLinkedList).toEqual(expectedList);
+    expect(linkedList.tail.value).toEqual(4);
+  });
+
+  it("should prepend a node before the head, making it new head", () => {
+    const linkedList = new SingleLinkedList([1, 2, 3]);
+
+    linkedList.prepend(0);
+
+    expect(linkedList.head.value).toEqual(0);
+    expect(linkedList.head.next.value).toEqual(1);
   });
 });
